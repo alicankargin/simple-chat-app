@@ -1,6 +1,7 @@
-package com.alicankargin.simplechat.business.model;
+package com.alicankargin.simplechat.chat.business.model;
 
 public class MessageModel {
+    private Long id;
     private String text;
     private String username;
 
@@ -8,9 +9,18 @@ public class MessageModel {
     public MessageModel() {
     }
 
-    public MessageModel(String username, String text) {
+    public MessageModel(Long id, String text, String username) {
+        this.id = id;
         this.text = text;
         this.username = username;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
