@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getConnected, getUsername } from '../redux/selectors';
 import { connectRequested } from '../redux/actions';
 import { LoginForm } from '../components/LoginForm';
+import { MessageForm } from '../components/MessageForm';
 
 class ChatComponent extends Component {
   static props = {
@@ -13,11 +14,11 @@ class ChatComponent extends Component {
   };
 
   render() {
-    const { connected } = this.props;
+    const { connected, username } = this.props;
     if (!connected) {
       return <LoginForm connectRequested={this.props.connectRequested} />;
     } else {
-      return <></>;
+      return <MessageForm username={username} messageSend={this.props.messageSend} />;
     }
   }
 }
