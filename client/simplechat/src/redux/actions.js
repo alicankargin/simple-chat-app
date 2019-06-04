@@ -17,3 +17,21 @@ export function connectSucceeded(username) {
     },
   };
 }
+
+export function messageSend(message) {
+  return {
+    type: actionTypes.MESSAGE_SEND,
+    payload: {
+      message,
+    },
+  };
+}
+
+export function messageReceived(message) {
+  return {
+    type: actionTypes.MESSAGE_RECEIVED,
+    payload: {
+      message,
+    },
+  };
+}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export class MessageForm extends Component {
   static props = {
     username: PropTypes.string.isRequired,
+    messageSend: PropTypes.func.isRequired,
   };
 
   state = {
@@ -12,6 +13,10 @@ export class MessageForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.messageSend({
+      username: this.props.username,
+      text: this.state.messageText,
+    });
   };
 
   handleChange = (event) => {

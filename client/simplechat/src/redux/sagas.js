@@ -11,12 +11,24 @@ function* subscribeToMessagesFromServer({ payload: { username } }) {
     channel = yield call(ChatService.createChannel);
     while (true) {
       const message = yield take(channel);
-      console.log(message);
+      yield put(actions.messageReceived(message));
     }
   } catch (error) {
     console.error('socket error:', error);
     channel && channel.close();
   }
+}
+
+function* sendMessageToServer({ payload: { message } }) {
+  try {
+    yield ChatService.sendMessage(message);
+  } catch (error) {
+    console.error('Failed to send message', error);
+  }
+}
+
+export function* watchMessageSend() {
+  yield takeLatest(actionTypes.MESSAGE_SEND, sendMessageToServer);
 }
 
 export function* watchConnectRequested() {

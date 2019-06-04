@@ -34,4 +34,8 @@ export class ChatService {
       return unsubscribe;
     });
   }
+
+  static sendMessage(message) {
+    ChatService.stompClient.send('/app/sendMessage', JSON.stringify(message));
+  }
 }
