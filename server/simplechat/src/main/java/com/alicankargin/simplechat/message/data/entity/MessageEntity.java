@@ -1,27 +1,30 @@
 package com.alicankargin.simplechat.message.data.entity;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class MessageEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String text;
-    private String username;
 
-    @CreatedDate
     @Column(name = "created_date")
+    @CreationTimestamp
     private Date createdDate;
 
-    @Column(name = "modified_date")
-    @LastModifiedDate
-    private long modifiedDate;
+    @Column(name = "updated_date")
+    @UpdateTimestamp
+    private Date updatedDate;
+
+    private String text;
+    private String username;
 
     protected MessageEntity() {}
 
@@ -34,11 +37,17 @@ public class MessageEntity {
         return id;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
     public String getText() {
         return text;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+
 }

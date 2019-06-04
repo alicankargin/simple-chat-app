@@ -1,16 +1,19 @@
 package com.alicankargin.simplechat.chat.business.model;
 
+import java.util.Date;
+
 public class MessageModel {
     private Long id;
+    private Date date;
     private String text;
     private String username;
-
 
     public MessageModel() {
     }
 
-    public MessageModel(Long id, String text, String username) {
+    public MessageModel(Long id, Date date, String text, String username) {
         this.id = id;
+        this.date = date;
         this.text = text;
         this.username = username;
     }
@@ -23,12 +26,12 @@ public class MessageModel {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getDate() {
+        return date;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getText() {
@@ -38,4 +41,13 @@ public class MessageModel {
     public void setText(String text) {
         this.text = text;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 }
