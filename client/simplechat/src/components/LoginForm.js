@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class LoginForm extends Component {
+  static props = {
+    connectRequested: PropTypes.func.isRequired,
+  };
+
   state = {
     username: null,
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.connectRequested(this.state.username);
   };
 
   handleChange = (event) => {
@@ -32,7 +38,7 @@ export class LoginForm extends Component {
         />
         <input
           type="submit"
-          className="login-form__button"
+          className="login-form__button Button"
           disabled={!this.state.username}
           value="Connect"
         />

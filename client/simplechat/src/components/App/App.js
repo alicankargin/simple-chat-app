@@ -1,12 +1,8 @@
 import React from 'react';
-import { LoginForm } from '../LoginForm';
+import { Chat } from '../../containers/Chat';
 
 function App() {
-  return (
-    <>
-      <LoginForm />
-    </>
-  );
+  return <Chat />;
 }
 
 export default App;
