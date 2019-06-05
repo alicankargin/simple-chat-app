@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './LoginForm.scss';
+
 export class LoginForm extends Component {
   static props = {
     connectRequested: PropTypes.func.isRequired,

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './MessageForm.scss';
+
 export class MessageForm extends Component {
   static props = {
     username: PropTypes.string.isRequired,

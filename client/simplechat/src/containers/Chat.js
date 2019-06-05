@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getConnected, getUsername, getMessages } from '../redux/selectors';
 import { connectRequested, messageSend, messageGetAll } from '../redux/actions';
-import { LoginForm } from '../components/LoginForm';
-import { Messages } from '../components/Messages';
-import { MessageForm } from '../components/MessageForm';
+import { LoginForm } from '../components/LoginForm/';
+import { Messages } from '../components/Messages/';
+import { MessageForm } from '../components/MessageForm/';
 
 import './Chat.scss';
 class ChatComponent extends Component {
