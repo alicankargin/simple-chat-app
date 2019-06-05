@@ -5,8 +5,8 @@ import moment from 'moment';
 import './Messages.scss';
 
 const propTypes = {
-  username: PropTypes.string.isRequired,
   messages: PropTypes.arrayOf(Object).isRequired,
+  username: PropTypes.string.isRequired,
 };
 
 const YOU = 'You';

@@ -5,8 +5,8 @@ import './MessageForm.scss';
 
 export class MessageForm extends Component {
   static props = {
-    username: PropTypes.string.isRequired,
     messageSend: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired,
   };
 
   state = {

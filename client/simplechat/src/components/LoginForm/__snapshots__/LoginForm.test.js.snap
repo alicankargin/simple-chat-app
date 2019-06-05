@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxInput should render correctly 1`] = `
+<form
+  className="login-form form"
+  onSubmit={[Function]}
+>
+  <label
+    className="login-form__label"
+    htmlFor="username"
+  >
+    Username
+  </label>
+  <input
+    className="login-form__username-input"
+    id="username"
+    onChange={[Function]}
+    placeholder="Enter username"
+    type="text"
+    value=""
+  />
+  <input
+    className="login-form__button"
+    disabled={true}
+    type="submit"
+    value="Connect"
+  />
+</form>
+`;

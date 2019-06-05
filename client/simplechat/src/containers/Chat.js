@@ -8,14 +8,14 @@ import { Messages } from '../components/Messages/';
 import { MessageForm } from '../components/MessageForm/';
 
 import './Chat.scss';
-class ChatComponent extends Component {
+export class ChatComponent extends Component {
   static props = {
-    connected: PropTypes.bool,
-    messages: PropTypes.array,
-    username: PropTypes.string,
-    connectRequested: PropTypes.func,
-    messageSend: PropTypes.func,
-    messageGetAll: PropTypes.func,
+    connected: PropTypes.bool.isRequired,
+    connectRequested: PropTypes.func.isRequired,
+    messages: PropTypes.array.isRequired,
+    messageGetAll: PropTypes.func.isRequired,
+    messageSend: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired,
   };
 
   componentDidMount() {

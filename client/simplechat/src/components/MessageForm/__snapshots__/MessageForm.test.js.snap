@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageForm should render correctly 1`] = `
+<form
+  className="message-form form"
+  onSubmit={[Function]}
+>
+  <input
+    className="message-form__message-input"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    className="message-form__button"
+    disabled={true}
+    type="submit"
+    value="Send"
+  />
+</form>
+`;
