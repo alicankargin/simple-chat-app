@@ -1,16 +1,16 @@
 package com.alicankargin.simplechat;
 
+import com.alicankargin.simplechat.chat.business.service.ChatServiceTests;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.runners.Suite;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@RunWith(Suite.class)
+@Suite.SuiteClasses({ChatServiceTests.class})
 public class SimplechatApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
+	@Test
+	public void contextLoads() {
+	}
 
 }
