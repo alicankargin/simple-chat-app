@@ -35,6 +35,10 @@ export class ChatService {
     });
   }
 
+  static getAllMessages() {
+    ChatService.stompClient.send('/app/getMessages');
+  }
+
   static sendMessage(message) {
     ChatService.stompClient.send('/app/sendMessage', JSON.stringify(message));
   }

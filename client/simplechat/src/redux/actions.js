@@ -35,3 +35,9 @@ export function messageReceived(message) {
     },
   };
 }
+
+export function messageGetAll(message) {
+  return {
+    type: actionTypes.MESSAGE_GET_ALL,
+  };
+}

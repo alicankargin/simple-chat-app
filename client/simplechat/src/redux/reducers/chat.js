@@ -19,7 +19,7 @@ export function reducer(state = initialState, action) {
       const { message } = action.payload;
       return {
         ...state,
-        messages: [...state.messages, message],
+        messages: [...state.messages, ...message],
       };
     default:
       return state;
