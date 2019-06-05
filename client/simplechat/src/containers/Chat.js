@@ -34,7 +34,7 @@ class ChatComponent extends Component {
     }
   }
 
-  handleRender(e) {
+  handleRender() {
     const { connected, messages, username } = this.props;
     if (!connected) {
       return <LoginForm connectRequested={this.props.connectRequested} />;

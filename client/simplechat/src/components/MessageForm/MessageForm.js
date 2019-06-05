@@ -10,14 +10,19 @@ export class MessageForm extends Component {
   };
 
   state = {
-    messageText: null,
+    messageText: '',
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.props.messageSend({
       username: this.props.username,
       text: this.state.messageText,
+    });
+
+    this.setState({
+      messageText: '',
     });
   };
 
@@ -28,7 +33,7 @@ export class MessageForm extends Component {
   };
 
   render() {
-    const messageText = this.props.messageText;
+    const messageText = this.state.messageText;
     return (
       <form className="message-form form" onSubmit={this.handleSubmit}>
         <input
