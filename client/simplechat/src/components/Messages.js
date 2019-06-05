@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import './Messages.scss';
+
 const propTypes = {
   username: PropTypes.string.isRequired,
   messages: PropTypes.arrayOf(Object).isRequired,

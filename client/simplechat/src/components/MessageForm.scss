@@ -1,0 +1,10 @@
+.message-form {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+
+  &__button {
+    margin-left: 10px;
+    flex: 0 1;
+  }
+}

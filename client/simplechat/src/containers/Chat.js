@@ -7,6 +7,7 @@ import { LoginForm } from '../components/LoginForm';
 import { Messages } from '../components/Messages';
 import { MessageForm } from '../components/MessageForm';
 
+import './Chat.scss';
 class ChatComponent extends Component {
   static props = {
     connected: PropTypes.bool,
