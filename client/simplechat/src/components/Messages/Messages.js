@@ -10,7 +10,7 @@ const propTypes = {
 };
 
 const YOU = 'You';
-const DATE_FORMAT = 'Do MMM YYYY h:mm';
+const DATE_FORMAT = 'Do MMM YYYY HH:mm';
 
 export const Messages = ({ username, messages }) => {
   const messageElements = messages.map((message) => {
