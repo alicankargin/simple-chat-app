@@ -22,9 +22,12 @@ To run the client, follow these steps:
 5. The client runs on `localhost:3000`
 6. Execute `yarn test` to run the client tests.
 
+## How to test
+After running the server and the client go to `http://localhost:3000/` on your browser, pick a username and login. The database is initially empty. It gets populated once a user starts sending messages. Open an incognito window on your browser and go to `http://localhost:3000/`, pick another username and login. Now you have two users chatting in the public channel. You can repeat the same process to login as another user. Each time a user logs in the client will make an HTTP call to the server to fetch all the messages in the public channel.
+
 ## Caveats
 
-After running the server and the client go to `http://localhost:3000/` on your browser, pick a username and login. There is no check for the uniqueness of the username currently so multiple users with the same username can actually login. The messages are indicated with `You` if the username that the message has been saved with is the same with the logged in username. The data is saved in H2 in memory database so it will dissappear after server has been restarted.
+There is no check for the uniqueness of the username currently so multiple users with the same username can actually login. The messages are indicated with `You` if the username that the message has been saved with is the same with the logged in username. The data is saved in H2 in memory database therefore the data will be deleted when the server is stopped.
 
 ## Todos
 
