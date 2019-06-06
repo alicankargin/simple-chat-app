@@ -1,11 +1,14 @@
 import webstomp from 'webstomp-client';
 import { eventChannel } from 'redux-saga';
 
+const SERVER_WS_URL = 'ws://localhost:8080';
+const SERVER_HTTP_URL = 'http://localhost:8080';
+
 export class ChatService {
   static stompClient = null;
 
   static async createConnection() {
-    ChatService.stompClient = webstomp.client('ws://localhost:8080/chat/websocket');
+    ChatService.stompClient = webstomp.client(`${SERVER_WS_URL}/chat/websocket`);
     await new Promise((resolve, reject) =>
       ChatService.stompClient.connect({}, () => {
         if (ChatService.stompClient.connected === true) {
@@ -36,7 +39,7 @@ export class ChatService {
   }
 
   static async getAllMessages() {
-    const response = await fetch('http://localhost:8080/messages');
+    const response = await fetch(`${SERVER_HTTP_URL}/messages`);
     return await response.json();
   }
 
