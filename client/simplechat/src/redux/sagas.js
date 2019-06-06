@@ -10,8 +10,7 @@ function* subscribeToMessagesFromServer({ payload: { username } }) {
     yield put(actions.connectSucceeded(username));
     channel = yield call(ChatService.createChannel);
     while (true) {
-      const receivedMessage = yield take(channel);
-      const message = !Array.isArray(receivedMessage) ? [receivedMessage] : receivedMessage;
+      const message = yield take(channel);
       yield put(actions.messageReceived(message));
     }
   } catch (error) {
@@ -22,7 +21,8 @@ function* subscribeToMessagesFromServer({ payload: { username } }) {
 
 function* getAllMessagesFromServer() {
   try {
-    yield ChatService.getAllMessages();
+    const messages = yield ChatService.getAllMessages();
+    yield put(actions.messageGetAllSucceeded(messages));
   } catch (error) {
     console.error('Failed to get messages', error);
   }

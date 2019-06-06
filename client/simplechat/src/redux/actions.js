@@ -36,8 +36,17 @@ export function messageReceived(message) {
   };
 }
 
-export function messageGetAll(message) {
+export function messageGetAll() {
   return {
     type: actionTypes.MESSAGE_GET_ALL,
+  };
+}
+
+export function messageGetAllSucceeded(messages) {
+  return {
+    type: actionTypes.MESSAGE_GET_ALL_SUCCEEDED,
+    payload: {
+      messages,
+    },
   };
 }

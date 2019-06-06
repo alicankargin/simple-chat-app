@@ -35,8 +35,9 @@ export class ChatService {
     });
   }
 
-  static getAllMessages() {
-    ChatService.stompClient.send('/app/getMessages');
+  static async getAllMessages() {
+    const response = await fetch('http://localhost:8080/messages');
+    return await response.json();
   }
 
   static sendMessage(message) {

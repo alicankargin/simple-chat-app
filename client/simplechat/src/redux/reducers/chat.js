@@ -19,7 +19,13 @@ export function reducer(state = initialState, action) {
       const { message } = action.payload;
       return {
         ...state,
-        messages: [...state.messages, ...message],
+        messages: [...state.messages, message],
+      };
+    case actionTypes.MESSAGE_GET_ALL_SUCCEEDED:
+      const { messages } = action.payload;
+      return {
+        ...state,
+        messages: [...messages],
       };
     default:
       return state;
