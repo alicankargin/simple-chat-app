@@ -32,7 +32,7 @@ export class LoginForm extends Component {
         </label>
         <input
           type="text"
-          className="login-form__username-input"
+          className="login-form__username-input text-input"
           id="username"
           onChange={this.handleChange}
           value={username}
@@ -40,7 +40,7 @@ export class LoginForm extends Component {
         />
         <input
           type="submit"
-          className="login-form__button"
+          className="login-form__button button"
           disabled={!this.state.username}
           value="Connect"
         />

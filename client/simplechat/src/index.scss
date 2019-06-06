@@ -31,8 +31,7 @@ label ~ input {
   margin-top: 5px;
 }
 
-button,
-input[type='submit'] {
+.button {
   border: none;
   background: none;
   border-radius: 3px;
@@ -50,7 +49,7 @@ input[type='submit'] {
   }
 }
 
-input[type='text'] {
+.text-input {
   border-radius: 3px;
   border: 1px solid #2f4f4f;
   transition: border 300ms ease-out;

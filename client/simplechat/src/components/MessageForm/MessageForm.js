@@ -38,13 +38,13 @@ export class MessageForm extends Component {
       <form className="message-form form" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          className="message-form__message-input"
+          className="message-form__message-input text-input"
           onChange={this.handleChange}
           value={messageText}
         />
         <input
           type="submit"
-          className="message-form__button"
+          className="message-form__button button"
           disabled={!this.state.messageText}
           value="Send"
         />
