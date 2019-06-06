@@ -20,13 +20,11 @@ public class ChatController {
     @MessageMapping("/sendMessage")
     @SendTo("/chat/public")
     public MessageModel sendMessage(MessageModel message) {
-        MessageModel model = service.saveMessage(message);
-        return model;
+        return service.saveMessage(message);
     }
 
     @RequestMapping("/messages")
     public List<MessageModel> getMessages() {
-        List<MessageModel> msgs = service.findAllMessages();
-        return msgs;
+        return service.findAllMessages();
     }
 }
