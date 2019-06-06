@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @Controller
+@RestController
 public class ChatController {
     @Autowired
     MessageService service;
@@ -21,9 +24,9 @@ public class ChatController {
         return model;
     }
 
-    @MessageMapping("/getMessages")
-    @SendTo("/chat/public")
+    @RequestMapping("/messages")
     public List<MessageModel> getMessages() {
-        return service.findAllMessages();
+        List<MessageModel> msgs = service.findAllMessages();
+        return msgs;
     }
 }
