@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import './LoginForm.scss';
 
-export class LoginForm extends Component {
-  static props = {
-    connectRequested: PropTypes.func.isRequired,
+interface Props {
+  connectRequested: (username: string) => void;
+}
+
+interface State {
+  username: string;
+}
+
+export class LoginForm extends Component<Props, State>  {
+  public state: State = {
+    username: '',
   };
 
-  state = {
-    username: null,
-  };
-
-  handleSubmit = (event) => {
+  public handleSubmit = (event) => {
     event.preventDefault();
     this.props.connectRequested(this.state.username);
   };
 
-  handleChange = (event) => {
+  public handleChange = (event) => {
     this.setState({
       username: event.target.value,
     });
   };
 
-  render() {
-    const { username } = this.props;
+  public render() {
+    const { username } = this.state;
     return (
       <form className="login-form form" onSubmit={this.handleSubmit}>
         <label className="login-form__label" htmlFor="username">

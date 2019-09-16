@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { OutgoingMessage } from '../../redux/types';
 
 import './MessageForm.scss';
 
-export class MessageForm extends Component {
-  static props = {
-    messageSend: PropTypes.func.isRequired,
-    username: PropTypes.string.isRequired,
-  };
+interface Props {
+  messageSend: (message: OutgoingMessage) => void;
+  username: string;
+}
 
-  state = {
+interface State {
+  messageText: string;
+}
+
+export class MessageForm extends Component<Props, State> {
+  public state = {
     messageText: '',
   };
 
-  handleSubmit = (event) => {
+  public handleSubmit = (event) => {
     event.preventDefault();
 
     this.props.messageSend({
-      username: this.props.username,
       text: this.state.messageText,
+      username: this.props.username,
     });
 
     this.setState({
@@ -26,13 +30,13 @@ export class MessageForm extends Component {
     });
   };
 
-  handleChange = (event) => {
+  public handleChange = (event) => {
     this.setState({
       messageText: event.target.value,
     });
   };
 
-  render() {
+  public render() {
     const messageText = this.state.messageText;
     return (
       <form className="message-form form" onSubmit={this.handleSubmit}>

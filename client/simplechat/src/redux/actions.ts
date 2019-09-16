@@ -1,8 +1,8 @@
-import * as actionTypes from './actionTypes';
+import { CONNECT_REQUESTED, CONNECT_SUCCEEDED, MESSAGE_GET_ALL, MESSAGE_GET_ALL_SUCCEEDED, MESSAGE_RECEIVED, MESSAGE_SEND } from './types';
 
 export function connectRequested(username) {
   return {
-    type: actionTypes.CONNECT_REQUESTED,
+    type: CONNECT_REQUESTED,
     payload: {
       username,
     },
@@ -11,7 +11,7 @@ export function connectRequested(username) {
 
 export function connectSucceeded(username) {
   return {
-    type: actionTypes.CONNECT_SUCCEEDED,
+    type: CONNECT_SUCCEEDED,
     payload: {
       username,
     },
@@ -20,7 +20,7 @@ export function connectSucceeded(username) {
 
 export function messageSend(message) {
   return {
-    type: actionTypes.MESSAGE_SEND,
+    type: MESSAGE_SEND,
     payload: {
       message,
     },
@@ -29,7 +29,7 @@ export function messageSend(message) {
 
 export function messageReceived(message) {
   return {
-    type: actionTypes.MESSAGE_RECEIVED,
+    type: MESSAGE_RECEIVED,
     payload: {
       message,
     },
@@ -38,13 +38,13 @@ export function messageReceived(message) {
 
 export function messageGetAll() {
   return {
-    type: actionTypes.MESSAGE_GET_ALL,
+    type: MESSAGE_GET_ALL,
   };
 }
 
 export function messageGetAllSucceeded(messages) {
   return {
-    type: actionTypes.MESSAGE_GET_ALL_SUCCEEDED,
+    type: MESSAGE_GET_ALL_SUCCEEDED,
     payload: {
       messages,
     },

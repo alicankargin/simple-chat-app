@@ -1,27 +1,27 @@
-import * as actionTypes from '../actionTypes';
+import { ChatActionTypes, ChatState, CONNECT_SUCCEEDED, MESSAGE_GET_ALL_SUCCEEDED, MESSAGE_RECEIVED } from '../types';
 
-export const initialState = {
+export const initialState: ChatState = {
   connected: false,
   username: '',
   messages: [],
 };
 
-export function reducer(state = initialState, action) {
+export function chatReducer(state = initialState, action: ChatActionTypes): ChatState {
   switch (action.type) {
-    case actionTypes.CONNECT_SUCCEEDED:
+    case CONNECT_SUCCEEDED:
       const { username } = action.payload;
       return {
         ...state,
         connected: true,
         username,
       };
-    case actionTypes.MESSAGE_RECEIVED:
+    case MESSAGE_RECEIVED:
       const { message } = action.payload;
       return {
         ...state,
         messages: [...state.messages, message],
       };
-    case actionTypes.MESSAGE_GET_ALL_SUCCEEDED:
+    case MESSAGE_GET_ALL_SUCCEEDED:
       const { messages } = action.payload;
       return {
         ...state,
@@ -32,4 +32,4 @@ export function reducer(state = initialState, action) {
   }
 }
 
-export default reducer;
+export default chatReducer;

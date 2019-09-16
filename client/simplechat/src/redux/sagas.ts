@@ -1,21 +1,19 @@
 import { call, fork, put, take, takeLatest } from 'redux-saga/effects';
 import { ChatService } from '../services';
-import * as actionTypes from './actionTypes';
 import * as actions from './actions';
+import { CONNECT_REQUESTED, ConnectRequestedAction, MESSAGE_GET_ALL, MESSAGE_SEND, MessageSendAction } from './types';
 
-function* subscribeToMessagesFromServer({ payload: { username } }) {
-  let channel = null;
+function* subscribeToMessagesFromServer({ payload: { username } }: ConnectRequestedAction) {
   try {
     yield call(ChatService.createConnection);
     yield put(actions.connectSucceeded(username));
-    channel = yield call(ChatService.createChannel);
+    const channel = yield call(ChatService.createChannel);
     while (true) {
       const message = yield take(channel);
       yield put(actions.messageReceived(message));
     }
   } catch (error) {
     console.error('socket error:', error);
-    channel && channel.close();
   }
 }
 
@@ -28,7 +26,7 @@ function* getAllMessagesFromServer() {
   }
 }
 
-function* sendMessageToServer({ payload: { message } }) {
+function* sendMessageToServer({ payload: { message } }: MessageSendAction) {
   try {
     yield ChatService.sendMessage(message);
   } catch (error) {
@@ -37,15 +35,15 @@ function* sendMessageToServer({ payload: { message } }) {
 }
 
 function* watchMessageSend() {
-  yield takeLatest(actionTypes.MESSAGE_SEND, sendMessageToServer);
+  yield takeLatest(MESSAGE_SEND, sendMessageToServer);
 }
 
 function* watchConnectRequested() {
-  yield takeLatest(actionTypes.CONNECT_REQUESTED, subscribeToMessagesFromServer);
+  yield takeLatest(CONNECT_REQUESTED, subscribeToMessagesFromServer);
 }
 
 function* watchGetAllMessagesFromServer() {
-  yield takeLatest(actionTypes.MESSAGE_GET_ALL, getAllMessagesFromServer);
+  yield takeLatest(MESSAGE_GET_ALL, getAllMessagesFromServer);
 }
 
 export function* rootSaga() {

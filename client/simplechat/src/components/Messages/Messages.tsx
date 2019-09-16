@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
+import React, { FunctionComponent } from 'react';
+import { IncomingMessage } from '../../redux/types';
 
 import './Messages.scss';
 
-const propTypes = {
-  messages: PropTypes.arrayOf(Object).isRequired,
-  username: PropTypes.string.isRequired,
-};
+interface Props {
+  messages: IncomingMessage[];
+  username: string;
+}
 
 const YOU = 'You';
 const DATE_FORMAT = 'Do MMM YYYY HH:mm';
 
-export const Messages = ({ username, messages }) => {
+export const Messages: FunctionComponent<Props> = ({ username, messages }) => {
   const messageElements = messages.map((message) => {
     const { id, username: messageUsername, text, date } = message;
     const messageClassModifier = messageUsername === username ? 'messages__message--you' : '';
@@ -30,5 +30,3 @@ export const Messages = ({ username, messages }) => {
 
   return <div className="messages">{messageElements}</div>;
 };
-
-Messages.propTypes = propTypes;

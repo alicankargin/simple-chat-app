@@ -14,16 +14,11 @@
     "webstomp-client": "^1.2.6"
   },
   "scripts": {
+    "prestart": "tslint -c tslint.json -p tsconfig.json --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "prettier"
-    ]
   },
   "browserslist": {
     "production": [
@@ -38,10 +33,19 @@
     ]
   },
   "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint-config-prettier": "^4.3.0",
     "prettier": "^1.17.1",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.6.3"
   }
 }
